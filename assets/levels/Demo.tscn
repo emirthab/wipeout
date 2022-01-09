@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://assets/texture/grids/Dark/texture_08.png" type="Texture" id=1]
 [ext_resource path="res://assets/script/Networking.gd" type="Script" id=2]
@@ -37,19 +37,7 @@ uv1_triplanar = true
 
 [sub_resource type="Animation" id=8]
 resource_name = "dönme 2"
-length = 2.0
-tracks/0/type = "value"
-tracks/0/path = NodePath("../../engeller/CSGCylinder2:rotation_degrees")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 2 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ Vector3( -1.45594e-19, 180, -90 ), Vector3( -1.45594e-19, 180, -90 ) ]
-}
+loop = true
 
 [sub_resource type="Animation" id=7]
 resource_name = "dönme"
@@ -66,6 +54,22 @@ tracks/0/keys = {
 "transitions": PoolRealArray( 1, 1 ),
 "update": 0,
 "values": [ Vector3( 0, -180, -90 ), Vector3( 0, 1.36604e-05, -90 ) ]
+}
+
+[sub_resource type="Animation" id=9]
+resource_name = "dönme3"
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:rotation_degrees")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector3( 0, -90, -90 ), Vector3( -3.63986e-20, 90, -90 ) ]
 }
 
 [node name="DemoScene" type="Spatial"]
@@ -87,13 +91,13 @@ height = 0.267993
 depth = 400.0
 
 [node name="BlockOut" type="Spatial" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.34071, 0 )
+transform = Transform( 1.24525, 0, 0, 0, 1.24525, 0, 0, 0, 1.24525, 0, 1.34071, 97.2027 )
 
 [node name="zemin" type="Spatial" parent="BlockOut"]
 transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.0878983, 0, 2.06257 )
 
 [node name="CSGBox" type="CSGBox" parent="BlockOut/zemin"]
-transform = Transform( 1.7843, 0, 0, 0, 1.7843, 0, 0, 0, 1.7843, 17.8169, 1.90516, -0.0221945 )
+transform = Transform( 1.7235, 0.461811, -2.65759e-09, -0.461811, 1.7235, -2.01864e-08, -2.65758e-09, 2.01864e-08, 1.7843, -29.5517, 5.90399, -0.154727 )
 material_override = SubResource( 4 )
 use_collision = true
 width = 17.7956
@@ -101,28 +105,52 @@ height = 3.78131
 depth = 17.8884
 
 [node name="CSGBox3" type="CSGBox" parent="BlockOut/zemin"]
-transform = Transform( 1.7843, 0, 0, 0, 1.7843, 0, 0, 0, 1.7843, 31.0871, 4.53409, 0.0190039 )
+transform = Transform( 1.7843, 0, -7.10543e-14, 0, 1.7843, 0, 7.10543e-14, 0, 1.7843, -6.46167, 2.19146, 0.0190023 )
 material_override = SubResource( 4 )
 use_collision = true
-width = 4.41327
+width = 10.4817
+height = 3.78131
+depth = 17.8106
+
+[node name="CSGBox8" type="CSGBox" parent="BlockOut/zemin"]
+transform = Transform( 1.7843, 0, -1.84741e-13, 0, 1.7843, 0, 1.84741e-13, 0, 1.7843, -53.0307, 9.91274, 0.0190002 )
+material_override = SubResource( 4 )
+use_collision = true
+width = 10.4817
 height = 3.78131
 depth = 17.8106
 
 [node name="CSGBox2" type="CSGBox" parent="BlockOut/zemin"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 77.9657, 1.41225, 0.0332871 )
+transform = Transform( 1, 0, -1.77636e-14, 0, 1, 0, 1.77636e-14, 0, 1, 50.189, 1.41225, 0.0332859 )
 material_override = SubResource( 5 )
 use_collision = true
-width = 9.98131
+width = 18.8554
 height = 8.05497
 depth = 1.41289
 
 [node name="CSGBox5" type="CSGBox" parent="BlockOut/zemin"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 106.201, 1.41225, 0.0332883 )
+transform = Transform( 1, 0, 3.90799e-14, 0, 1, 0, -3.90799e-14, 0, 1, 99.2584, 1.36636, -0.0144121 )
 material_override = SubResource( 5 )
 use_collision = true
-width = 16.1877
+width = 1.51718
 height = 8.05497
-depth = 1.41289
+depth = 12.5503
+
+[node name="CSGBox6" type="CSGBox" parent="BlockOut/zemin"]
+transform = Transform( 1, 0, 6.03961e-14, 0, 1, 0, -6.03961e-14, 0, 1, 104.191, 1.63197, -0.0144119 )
+material_override = SubResource( 5 )
+use_collision = true
+width = 1.51718
+height = 9.77629
+depth = 12.5503
+
+[node name="CSGBox7" type="CSGBox" parent="BlockOut/zemin"]
+transform = Transform( 1, 0, 1.24345e-13, 0, 1, 0, -1.24345e-13, 0, 1, 111.047, 0.0113338, -0.0144116 )
+material_override = SubResource( 5 )
+use_collision = true
+width = 5.46451
+height = 8.92838
+depth = 12.5503
 
 [node name="CSGBox4" type="CSGBox" parent="BlockOut/zemin"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 77.9657, -0.139005, 5.29326 )
@@ -133,37 +161,47 @@ height = 4.58382
 depth = 1.41289
 
 [node name="CSGCylinder" type="CSGCylinder" parent="BlockOut/zemin"]
-transform = Transform( 1.64806, 0, 0.683829, 0, 1.7843, 0, -0.683829, 0, 1.64806, 55.3324, 2.68388, -0.014694 )
+transform = Transform( 1.64806, 0, 0.683829, 0, 1.7843, 0, -0.683829, 0, 1.64806, 21.8135, 2.68388, -0.0146955 )
 material_override = SubResource( 6 )
 use_collision = true
 radius = 8.88005
 height = 4.65683
 
 [node name="CSGCylinder2" type="CSGCylinder" parent="BlockOut/zemin"]
-transform = Transform( -1.26169, 0, 1.26169, 0, 1.7843, 0, -1.26169, 0, -1.26169, 88.8662, 2.68388, 1.43793 )
+transform = Transform( -1.6415, -0.00947674, -0.699356, -0.00667415, 1.78427, -0.00851259, 0.699386, -0.0052154, -1.64151, 90.1529, 2.68388, 0.053922 )
 material_override = SubResource( 6 )
 use_collision = true
 radius = 2.45116
 height = 4.65683
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="BlockOut/zemin/CSGCylinder2"]
+autoplay = "dönme 2"
 "anims/dönme 2" = SubResource( 8 )
 
-[node name="engeller" type="Spatial" parent="BlockOut"]
-
-[node name="CSGCylinder2" type="CSGCylinder" parent="BlockOut/engeller"]
-transform = Transform( 4.37114e-08, -1, 8.74228e-08, -1, -4.37114e-08, 0, 3.82137e-15, -8.74228e-08, -1, -0.0432987, 6.18226, -13.409 )
+[node name="CSGCylinder3" type="CSGCylinder" parent="BlockOut/zemin"]
+transform = Transform( 4.37114e-08, -1, 8.74228e-08, -1, -4.37114e-08, 0, 3.82137e-15, -8.74228e-08, -1, 21.3399, 7.69558, -0.131199 )
 use_collision = true
 radius = 0.584164
-height = 23.6388
+height = 26.0028
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="BlockOut/engeller/CSGCylinder2"]
+[node name="AnimationPlayer" type="AnimationPlayer" parent="BlockOut/zemin/CSGCylinder3"]
+root_node = NodePath("../../CSGCylinder3")
 autoplay = "dönme"
 playback_speed = 2.0
 "anims/dönme" = SubResource( 7 )
 
+[node name="CSGCylinder4" type="CSGCylinder" parent="BlockOut/zemin"]
+transform = Transform( 1.91069e-15, -4.37114e-08, -1, -1, -4.37114e-08, 0, -4.37114e-08, 1, -4.37114e-08, 21.3399, 7.69558, -0.131198 )
+use_collision = true
+radius = 0.584164
+height = 26.0028
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="BlockOut/zemin/CSGCylinder4"]
+autoplay = "dönme3"
+"anims/dönme3" = SubResource( 9 )
+
 [node name="Player1Pos" type="Position3D" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 8.96657, -1.24239 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 21.8466, 171.323 )
 
 [node name="Player2Pos" type="Position3D" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.754182, 9.23672, -0.846485 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.754182, 22.1167, 171.719 )
