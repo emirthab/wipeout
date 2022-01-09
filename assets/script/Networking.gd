@@ -38,9 +38,9 @@ func _player_connected(id):
 	print("oyuncu baglandi ", id)
 	add_child(PuppetPlayer)
 	if id == 1:
-		PuppetPlayer.global_transform = $Player1Pos
+		PuppetPlayer.global_transform = $Player1Pos.global_transform
 	else:
-		PuppetPlayer.global_transform = $Player2Pos
+		PuppetPlayer.global_transform = $Player2Pos.global_transform
 
 func _player_disconnected(id):
 	get_node(str(get_tree().current_scene,"/",id)).queue_free()
