@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://assets/texture/grids/Dark/texture_08.png" type="Texture" id=1]
 [ext_resource path="res://assets/script/Networking.gd" type="Script" id=2]
@@ -31,11 +31,32 @@ uv1_offset = Vector3( 1, 1, 0 )
 uv1_triplanar = true
 uv2_offset = Vector3( 1, 1, 1 )
 
+[sub_resource type="Animation" id=11]
+resource_name = "animasyon kare 5"
+length = 2.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:translation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1, 2 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ Vector3( 82.3968, 1.36636, -0.014413 ), Vector3( 82.3968, 2.3829, -0.014413 ), Vector3( 82.3968, 1.36636, -0.014413 ) ]
+}
+
 [sub_resource type="SpatialMaterial" id=6]
 albedo_texture = ExtResource( 6 )
 uv1_triplanar = true
 
 [sub_resource type="Animation" id=8]
+resource_name = "dönme 2"
+loop = true
+
+[sub_resource type="Animation" id=10]
 resource_name = "dönme 2"
 loop = true
 
@@ -75,10 +96,6 @@ tracks/0/keys = {
 [node name="DemoScene" type="Spatial"]
 script = ExtResource( 2 )
 
-[node name="DirectionalLight" type="DirectionalLight" parent="."]
-transform = Transform( 0.842603, 0.177932, -0.508292, 0, 0.943841, 0.330399, 0.538536, -0.278395, 0.795283, -11.4391, 3.75627, 3.64444 )
-shadow_enabled = true
-
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource( 2 )
 
@@ -112,8 +129,16 @@ width = 10.4817
 height = 3.78131
 depth = 17.8106
 
+[node name="CSGBox11" type="CSGBox" parent="BlockOut/zemin"]
+transform = Transform( 1.7843, 0, -7.10543e-14, 0, 1.7843, 0, 7.10543e-14, 0, 1.7843, -6.46167, 0.618668, 16.764 )
+material_override = SubResource( 4 )
+use_collision = true
+width = 10.4817
+height = 2.25444
+depth = 3.90083
+
 [node name="CSGBox8" type="CSGBox" parent="BlockOut/zemin"]
-transform = Transform( 1.7843, 0, -1.84741e-13, 0, 1.7843, 0, 1.84741e-13, 0, 1.7843, -53.0307, 9.91274, 0.0190002 )
+transform = Transform( 1.7843, 0, -1.84741e-13, 0, 1.7843, 0, 1.84741e-13, 0, 1.7843, -53.38, 9.91496, 0.0190002 )
 material_override = SubResource( 4 )
 use_collision = true
 width = 10.4817
@@ -121,23 +146,27 @@ height = 3.78131
 depth = 17.8106
 
 [node name="CSGBox2" type="CSGBox" parent="BlockOut/zemin"]
-transform = Transform( 1, 0, -1.77636e-14, 0, 1, 0, 1.77636e-14, 0, 1, 50.189, 1.41225, 0.0332859 )
+transform = Transform( 1, 0, -1.77636e-14, 0, 1, 0, 1.77636e-14, 0, 1, 45.1123, 0.901895, 0.0332856 )
 material_override = SubResource( 5 )
 use_collision = true
-width = 18.8554
-height = 8.05497
-depth = 1.41289
+width = 0.486122
+height = 6.2112
+depth = 0.327703
 
 [node name="CSGBox5" type="CSGBox" parent="BlockOut/zemin"]
-transform = Transform( 1, 0, 3.90799e-14, 0, 1, 0, -3.90799e-14, 0, 1, 99.2584, 1.36636, -0.0144121 )
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 82.3968, 2.33761, -0.014413 )
 material_override = SubResource( 5 )
 use_collision = true
 width = 1.51718
-height = 8.05497
+height = 6.9862
 depth = 12.5503
 
+[node name="AnimationPlayer" type="AnimationPlayer" parent="BlockOut/zemin/CSGBox5"]
+autoplay = "animasyon kare 5"
+"anims/animasyon kare 5" = SubResource( 11 )
+
 [node name="CSGBox6" type="CSGBox" parent="BlockOut/zemin"]
-transform = Transform( 1, 0, 6.03961e-14, 0, 1, 0, -6.03961e-14, 0, 1, 104.191, 1.63197, -0.0144119 )
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 98.5358, 1.63197, -0.0144122 )
 material_override = SubResource( 5 )
 use_collision = true
 width = 1.51718
@@ -145,20 +174,12 @@ height = 9.77629
 depth = 12.5503
 
 [node name="CSGBox7" type="CSGBox" parent="BlockOut/zemin"]
-transform = Transform( 1, 0, 1.24345e-13, 0, 1, 0, -1.24345e-13, 0, 1, 111.047, 0.0113338, -0.0144116 )
+transform = Transform( 1, 0, 1.24345e-13, 0, 1, 0, -1.24345e-13, 0, 1, 111.833, 0.0113338, -0.0144116 )
 material_override = SubResource( 5 )
 use_collision = true
 width = 5.46451
 height = 8.92838
 depth = 12.5503
-
-[node name="CSGBox4" type="CSGBox" parent="BlockOut/zemin"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 77.9657, -0.139005, 5.29326 )
-material_override = SubResource( 5 )
-use_collision = true
-width = 9.98131
-height = 4.58382
-depth = 1.41289
 
 [node name="CSGCylinder" type="CSGCylinder" parent="BlockOut/zemin"]
 transform = Transform( 1.64806, 0, 0.683829, 0, 1.7843, 0, -0.683829, 0, 1.64806, 21.8135, 2.68388, -0.0146955 )
@@ -167,8 +188,15 @@ use_collision = true
 radius = 8.88005
 height = 4.65683
 
+[node name="CSGCylinder5" type="CSGCylinder" parent="BlockOut/zemin"]
+transform = Transform( 1.64806, 0, 0.683829, 0, 1.7843, 0, -0.683829, 0, 1.64806, 25.7435, 2.68388, -0.0146953 )
+material_override = SubResource( 6 )
+use_collision = true
+radius = 8.88005
+height = 4.65683
+
 [node name="CSGCylinder2" type="CSGCylinder" parent="BlockOut/zemin"]
-transform = Transform( -1.6415, -0.00947674, -0.699356, -0.00667415, 1.78427, -0.00851259, 0.699386, -0.0052154, -1.64151, 90.1529, 2.68388, 0.053922 )
+transform = Transform( -1.6415, -0.00947674, -0.699356, -0.00667415, 1.78427, -0.00851259, 0.699386, -0.0052154, -1.64151, 65.3974, 2.68388, 0.0539209 )
 material_override = SubResource( 6 )
 use_collision = true
 radius = 2.45116
@@ -177,6 +205,17 @@ height = 4.65683
 [node name="AnimationPlayer" type="AnimationPlayer" parent="BlockOut/zemin/CSGCylinder2"]
 autoplay = "dönme 2"
 "anims/dönme 2" = SubResource( 8 )
+
+[node name="CSGCylinder6" type="CSGCylinder" parent="BlockOut/zemin"]
+transform = Transform( -1.6415, -0.00947674, -0.699356, -0.00667415, 1.78427, -0.00851259, 0.699386, -0.0052154, -1.64151, 68.6489, 2.68388, 0.0539211 )
+material_override = SubResource( 6 )
+use_collision = true
+radius = 2.45116
+height = 4.65683
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="BlockOut/zemin/CSGCylinder6"]
+autoplay = "dönme 2"
+"anims/dönme 2" = SubResource( 10 )
 
 [node name="CSGCylinder3" type="CSGCylinder" parent="BlockOut/zemin"]
 transform = Transform( 4.37114e-08, -1, 8.74228e-08, -1, -4.37114e-08, 0, 3.82137e-15, -8.74228e-08, -1, 21.3399, 7.69558, -0.131199 )
@@ -199,6 +238,24 @@ height = 26.0028
 [node name="AnimationPlayer" type="AnimationPlayer" parent="BlockOut/zemin/CSGCylinder4"]
 autoplay = "dönme3"
 "anims/dönme3" = SubResource( 9 )
+
+[node name="CSGSphere" type="CSGSphere" parent="BlockOut/zemin"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 45.0942, 6.0435, 1.9744e-06 )
+use_collision = true
+radius = 3.38956
+
+[node name="CSGBox4" type="CSGBox" parent="BlockOut/zemin"]
+transform = Transform( 1, 0, -1.77636e-14, 0, 1, 0, 1.77636e-14, 0, 1, 55.0307, 0.901895, 0.033286 )
+material_override = SubResource( 5 )
+use_collision = true
+width = 0.486122
+height = 6.2112
+depth = 0.327703
+
+[node name="CSGSphere2" type="CSGSphere" parent="BlockOut/zemin"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 55.0126, 6.0435, 2.40654e-06 )
+use_collision = true
+radius = 3.38956
 
 [node name="Player1Pos" type="Position3D" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 21.8466, 171.323 )
