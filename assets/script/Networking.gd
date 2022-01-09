@@ -36,6 +36,7 @@ func _player_connected(id):
 	PuppetPlayer.set_name(str(id))
 	PuppetPlayer.set_network_master(id)
 	print("oyuncu baglandi ", id)
+	add_child(PuppetPlayer)
 	if id == 1:
 		PuppetPlayer.global_transform = $Player1Pos
 	else:
