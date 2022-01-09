@@ -33,7 +33,7 @@ func _input(event):
 
 
 func _player_connected(id):
-	PuppetPlayer.name = id
+	PuppetPlayer.set_name(str(id))
 	PuppetPlayer.set_network_master(id)
 	print("oyuncu baglandi ", id)
 	if id == 1:
