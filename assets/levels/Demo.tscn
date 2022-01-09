@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://assets/texture/grids/Dark/texture_08.png" type="Texture" id=1]
 [ext_resource path="res://assets/script/Networking.gd" type="Script" id=2]
@@ -34,6 +34,22 @@ uv2_offset = Vector3( 1, 1, 1 )
 [sub_resource type="SpatialMaterial" id=6]
 albedo_texture = ExtResource( 6 )
 uv1_triplanar = true
+
+[sub_resource type="Animation" id=8]
+resource_name = "dönme 2"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("../../engeller/CSGCylinder2:rotation_degrees")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 2 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector3( -1.45594e-19, 180, -90 ), Vector3( -1.45594e-19, 180, -90 ) ]
+}
 
 [sub_resource type="Animation" id=7]
 resource_name = "dönme"
@@ -96,9 +112,25 @@ depth = 17.8106
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 77.9657, 1.41225, 0.0332871 )
 material_override = SubResource( 5 )
 use_collision = true
-width = 5.78112
-height = 4.5534
-depth = 16.9118
+width = 9.98131
+height = 8.05497
+depth = 1.41289
+
+[node name="CSGBox5" type="CSGBox" parent="BlockOut/zemin"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 106.201, 1.41225, 0.0332883 )
+material_override = SubResource( 5 )
+use_collision = true
+width = 16.1877
+height = 8.05497
+depth = 1.41289
+
+[node name="CSGBox4" type="CSGBox" parent="BlockOut/zemin"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 77.9657, -0.139005, 5.29326 )
+material_override = SubResource( 5 )
+use_collision = true
+width = 9.98131
+height = 4.58382
+depth = 1.41289
 
 [node name="CSGCylinder" type="CSGCylinder" parent="BlockOut/zemin"]
 transform = Transform( 1.64806, 0, 0.683829, 0, 1.7843, 0, -0.683829, 0, 1.64806, 55.3324, 2.68388, -0.014694 )
@@ -108,11 +140,14 @@ radius = 8.88005
 height = 4.65683
 
 [node name="CSGCylinder2" type="CSGCylinder" parent="BlockOut/zemin"]
-transform = Transform( 1.7843, 0, 0, 0, 1.7843, 0, 0, 0, 1.7843, 88.8662, 2.68388, 1.43793 )
+transform = Transform( -1.26169, 0, 1.26169, 0, 1.7843, 0, -1.26169, 0, -1.26169, 88.8662, 2.68388, 1.43793 )
 material_override = SubResource( 6 )
 use_collision = true
 radius = 2.45116
 height = 4.65683
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="BlockOut/zemin/CSGCylinder2"]
+"anims/dönme 2" = SubResource( 8 )
 
 [node name="engeller" type="Spatial" parent="BlockOut"]
 
