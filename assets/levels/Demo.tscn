@@ -38,11 +38,11 @@ uv1_triplanar = true
 [node name="DemoScene" type="Spatial"]
 
 [node name="DirectionalLight" type="DirectionalLight" parent="."]
-transform = Transform( 1, 0, 0, 0, 0.943841, 0.330399, 0, -0.330399, 0.943841, -11.4391, 3.75627, 3.64444 )
+transform = Transform( 0.842603, 0.177932, -0.508292, 0, 0.943841, 0.330399, 0.538536, -0.278395, 0.795283, -11.4391, 3.75627, 3.64444 )
 shadow_enabled = true
 
 [node name="Player" parent="." instance=ExtResource( 2 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -47.1544, 6.78686, 0.128211 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.18343, 6.78686, -0.556954 )
 jump_power = 20
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
@@ -60,54 +60,38 @@ depth = 400.0
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.34071, 0 )
 
 [node name="zemin" type="Spatial" parent="BlockOut"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -49.9377, 0, 0 )
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.0878983, 0, 2.06257 )
 
 [node name="CSGBox" type="CSGBox" parent="BlockOut/zemin"]
-transform = Transform( 1.7843, 0, 0, 0, 1.7843, 0, 0, 0, 1.7843, 14.2792, 1.90516, -0.0221945 )
+transform = Transform( 1.7843, 0, 0, 0, 1.7843, 0, 0, 0, 1.7843, 17.8169, 1.90516, -0.0221945 )
 material_override = SubResource( 4 )
 use_collision = true
-width = 15.8906
+width = 17.7956
 height = 3.78131
-depth = 5.8915
+depth = 17.8884
 
 [node name="CSGBox2" type="CSGBox" parent="BlockOut/zemin"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 41.9003, 1.31088, 0.033287 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 75.1989, 1.41225, 0.033287 )
 material_override = SubResource( 5 )
 use_collision = true
-height = 4.707
-depth = 10.168
-
-[node name="CSGBox3" type="CSGBox" parent="BlockOut/zemin"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 43.8871, 1.40697, 0.033287 )
-material_override = SubResource( 5 )
-use_collision = true
-height = 6.55269
-depth = 10.168
-
-[node name="CSGBox4" type="CSGBox" parent="BlockOut/zemin"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 45.8809, 2.40788, 0.033287 )
-material_override = SubResource( 5 )
-use_collision = true
-height = 6.55269
-depth = 10.168
-
-[node name="CSGBox5" type="CSGBox" parent="BlockOut/zemin"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 47.8827, 3.4328, 0.033287 )
-material_override = SubResource( 5 )
-use_collision = true
-height = 6.55269
+height = 4.5534
 depth = 10.168
 
 [node name="CSGCylinder" type="CSGCylinder" parent="BlockOut/zemin"]
-transform = Transform( 1.7843, 0, 0, 0, 1.7843, 0, 0, 0, 1.7843, 34.7571, 2.68388, -5.30025 )
+transform = Transform( 1.64806, 0, 0.683829, 0, 1.7843, 0, -0.683829, 0, 1.64806, 55.3324, 2.68388, -0.014694 )
+material_override = SubResource( 6 )
+use_collision = true
+radius = 8.88005
+height = 4.65683
+
+[node name="CSGCylinder2" type="CSGCylinder" parent="BlockOut/zemin"]
+transform = Transform( 1.7843, 0, 0, 0, 1.7843, 0, 0, 0, 1.7843, 88.8662, 2.68388, 1.43793 )
 material_override = SubResource( 6 )
 use_collision = true
 radius = 2.45116
 height = 4.65683
 
-[node name="CSGCylinder2" type="CSGCylinder" parent="BlockOut/zemin"]
-transform = Transform( 1.7843, 0, 0, 0, 1.7843, 0, 0, 0, 1.7843, 34.7571, 2.68388, 5.3653 )
-material_override = SubResource( 6 )
-use_collision = true
-radius = 2.45116
-height = 4.65683
+[node name="engeller" type="Spatial" parent="BlockOut"]
+
+[node name="CSGCylinder" type="CSGCylinder" parent="BlockOut/engeller"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 7.05136, -13.6308 )
