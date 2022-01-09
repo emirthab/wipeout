@@ -15,6 +15,7 @@ func handle_movement(delta):
 	
 	direction = Vector3()
 	if Input.is_action_pressed("move_forward"):
+		print("deneme")
 		direction -= $Pivot.transform.basis.z
 	
 	elif Input.is_action_pressed("move_backward"):

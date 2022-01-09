@@ -1,7 +1,7 @@
 [gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://assets/texture/grids/Dark/texture_08.png" type="Texture" id=1]
-[ext_resource path="res://assets/sprite/player/Player.tscn" type="PackedScene" id=2]
+[ext_resource path="res://assets/script/Networking.gd" type="Script" id=2]
 [ext_resource path="res://assets/texture/daytime.png" type="Texture" id=3]
 [ext_resource path="res://assets/texture/grids/Green/texture_09.png" type="Texture" id=4]
 [ext_resource path="res://assets/texture/grids/Orange/texture_09.png" type="Texture" id=5]
@@ -36,14 +36,11 @@ albedo_texture = ExtResource( 6 )
 uv1_triplanar = true
 
 [node name="DemoScene" type="Spatial"]
+script = ExtResource( 2 )
 
 [node name="DirectionalLight" type="DirectionalLight" parent="."]
 transform = Transform( 1, 0, 0, 0, 0.943841, 0.330399, 0, -0.330399, 0.943841, -11.4391, 3.75627, 3.64444 )
 shadow_enabled = true
-
-[node name="Player" parent="." instance=ExtResource( 2 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -47.1544, 6.78686, 0.128211 )
-jump_power = 20
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource( 2 )
@@ -111,3 +108,9 @@ material_override = SubResource( 6 )
 use_collision = true
 radius = 2.45116
 height = 4.65683
+
+[node name="Player1Pos" type="Position3D" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -32.8535, 7.55412, 0.22779 )
+
+[node name="Player2Pos" type="Position3D" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -39.9958, 7.55412, 0.22779 )
