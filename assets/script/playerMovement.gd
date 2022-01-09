@@ -55,6 +55,7 @@ func handle_movement(delta):
 
 func _physics_process(delta):
 	rpc_unreliable("sendPos",global_transform)
+	rpc_unreliable("setRotation",$Model.rotation)
 	handle_movement(delta)
 
 func _input(event):

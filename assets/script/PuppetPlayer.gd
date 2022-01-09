@@ -5,3 +5,6 @@ remote func sendPos(pos):
 
 remote func setAnimation(anim):
 	$Model/AnimationPlayer.play(anim)
+
+remote func setRotation(rot):
+    $Model.rotation = rot
