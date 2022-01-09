@@ -29,7 +29,7 @@ func _input(event):
 		player.set_name(str(id))
 		player.set_network_master(id)
 		add_child(player)
-		player.global_transform = $Player2Pos.global__transform
+		player.global_transform = $Player2Pos.global_transform
 
 
 func _player_connected(id):
