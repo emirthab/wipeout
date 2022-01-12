@@ -10,6 +10,7 @@ export var jump_power = 25
 var max_terminal_velocity : float = 54
 var gravity : float = 0.98
 var y_velocity : float
+var jumpTimer : float
 
 func handle_movement(delta):
 	
@@ -37,7 +38,12 @@ func handle_movement(delta):
 	else:
 		y_velocity = clamp(y_velocity - gravity, -max_terminal_velocity, max_terminal_velocity)
 	
-	if Input.is_action_just_pressed("move_jump") && is_on_floor():
+	if not is_on_floor():
+		jumpTimer += delta
+	else:
+		jumpTimer = 0
+
+	if Input.is_action_just_pressed("move_jump") and jumpTimer < 0.1:
 		$Model/AnimationPlayer.play("jump")
 		rpc("setAnimation","jump")
 		y_velocity = jump_power
