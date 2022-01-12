@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=2]
+[gd_scene load_steps=23 format=2]
 
 [ext_resource path="res://assets/texture/grids/Dark/texture_08.png" type="Texture" id=1]
 [ext_resource path="res://assets/script/Networking.gd" type="Script" id=2]
@@ -7,6 +7,7 @@
 [ext_resource path="res://assets/geometry/boom_1.tscn" type="PackedScene" id=5]
 [ext_resource path="res://assets/texture/Gay_Pride_Flag.svg.png" type="Texture" id=6]
 [ext_resource path="res://assets/texture/sea.webp" type="Texture" id=7]
+[ext_resource path="res://assets/texture/blue-sky-with-clouds-background-elegant_1017-26302.jpg" type="Texture" id=8]
 
 [sub_resource type="PanoramaSky" id=1]
 panorama = ExtResource( 3 )
@@ -72,7 +73,11 @@ albedo_texture = ExtResource( 7 )
 uv1_scale = Vector3( 5, 5, 5 )
 
 [sub_resource type="SpatialMaterial" id=24]
-albedo_color = Color( 0.223529, 0.823529, 0.823529, 1 )
+albedo_color = Color( 0.294118, 0.819608, 0.921569, 1 )
+uv1_scale = Vector3( 5, 5, 5 )
+
+[sub_resource type="SpatialMaterial" id=25]
+albedo_texture = ExtResource( 8 )
 
 [node name="DemoScene" type="Spatial"]
 script = ExtResource( 2 )
@@ -288,33 +293,40 @@ playback_speed = 0.5
 "anims/dönme" = SubResource( 7 )
 
 [node name="zemin2" type="CSGBox" parent="BlockOut"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.99582, -28.2197 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 5.68298, -1.99582, -28.2197 )
 material_override = SubResource( 17 )
 use_collision = true
-width = 141.124
+width = 86.1793
+depth = 209.474
+
+[node name="zemin3" type="CSGBox" parent="BlockOut"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 5.68298, 50.5649, -28.2197 )
+material_override = SubResource( 24 )
+use_collision = true
+width = 86.1793
 depth = 209.474
 
 [node name="sky" type="Spatial" parent="BlockOut"]
 
-[node name="CSGBox" type="CSGBox" parent="BlockOut/sky"]
-transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 35.0968, 24.5164, -28.6938 )
-material_override = SubResource( 24 )
-width = 0.89339
-height = 209.357
-depth = 52.0427
-
-[node name="CSGBox3" type="CSGBox" parent="BlockOut/sky"]
-transform = Transform( -4.37114e-08, 1, -4.37114e-08, 0, -4.37114e-08, -1, -1, -4.37114e-08, 1.91069e-15, 11.8006, 24.5164, -130.355 )
-material_override = SubResource( 24 )
-width = 0.89339
-height = 100.655
-depth = 52.0427
-
 [node name="CSGBox2" type="CSGBox" parent="BlockOut/sky"]
-transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -29.579, 24.5164, -28.6938 )
-material_override = SubResource( 24 )
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 40.1216, 24.5164, -28.6938 )
+material_override = SubResource( 25 )
 width = 0.89339
 height = 209.357
+depth = 52.0427
+
+[node name="CSGBox4" type="CSGBox" parent="BlockOut/sky"]
+transform = Transform( 1, 0, 0, 0, 1.31134e-07, 1, 0, -1, 1.31134e-07, -30.1909, 24.5164, -28.6938 )
+material_override = SubResource( 25 )
+width = 0.89339
+height = 209.357
+depth = 52.0427
+
+[node name="CSGBox5" type="CSGBox" parent="BlockOut/sky"]
+transform = Transform( -4.37114e-08, 1, -1.31134e-07, 0, 1.31134e-07, 1, 1, 4.37114e-08, -5.73206e-15, -0.567822, 24.5164, -128.52 )
+material_override = SubResource( 25 )
+width = 0.89339
+height = 151.835
 depth = 52.0427
 
 [node name="Player1Pos" type="Position3D" parent="."]
