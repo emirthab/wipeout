@@ -1,0 +1,366 @@
+[gd_scene load_steps=21 format=2]
+
+[ext_resource path="res://assets/ui/login/sources/game-logo.png" type="Texture" id=1]
+[ext_resource path="res://assets/ui/login/sources/twitch.png" type="Texture" id=2]
+[ext_resource path="res://assets/ui/login/sources/minions.png" type="Texture" id=3]
+[ext_resource path="res://assets/ui/login/sources/PlayButton_1.png" type="Texture" id=4]
+[ext_resource path="res://assets/ui/login/sources/container.png" type="Texture" id=5]
+[ext_resource path="res://assets/ui/login/sources/back-1.png" type="Texture" id=6]
+[ext_resource path="res://assets/ui/login/sources/discord.png" type="Texture" id=7]
+[ext_resource path="res://assets/ui/login/sources/dark-effect.png" type="Texture" id=8]
+[ext_resource path="res://assets/ui/font/nunito/Nunito-Medium.ttf" type="DynamicFontData" id=9]
+[ext_resource path="res://assets/ui/font/nunito/Nunito-Bold.ttf" type="DynamicFontData" id=10]
+[ext_resource path="res://assets/ui/font/nunito/Nunito-Light.ttf" type="DynamicFontData" id=11]
+[ext_resource path="res://assets/ui/font/nunito/Nunito-ExtraBold.ttf" type="DynamicFontData" id=12]
+[ext_resource path="res://assets/script/loginUI.gd" type="Script" id=13]
+
+[sub_resource type="DynamicFont" id=1]
+outline_color = Color( 0.0862745, 0.0862745, 0.0862745, 1 )
+use_filter = true
+font_data = ExtResource( 9 )
+
+[sub_resource type="StyleBoxFlat" id=2]
+bg_color = Color( 0.552941, 0.552941, 0.552941, 1 )
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+
+[sub_resource type="DynamicFont" id=5]
+size = 17
+use_filter = true
+font_data = ExtResource( 11 )
+
+[sub_resource type="StyleBoxFlat" id=4]
+bg_color = Color( 0.6, 0.6, 0.6, 0 )
+
+[sub_resource type="DynamicFont" id=7]
+font_data = ExtResource( 12 )
+
+[sub_resource type="DynamicFont" id=3]
+use_filter = true
+font_data = ExtResource( 10 )
+
+[sub_resource type="DynamicFont" id=6]
+font_data = ExtResource( 11 )
+
+[node name="login" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = 10.0
+margin_bottom = -5.0
+script = ExtResource( 13 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="background" type="Control" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="back-1" type="TextureRect" parent="background"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 6 )
+expand = true
+
+[node name="dark-effect" type="TextureRect" parent="background"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 8 )
+expand = true
+
+[node name="minions" type="TextureRect" parent="background"]
+anchor_left = 0.8
+anchor_top = 0.388
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -0.200012
+margin_top = 0.199997
+texture = ExtResource( 3 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="main" type="Control" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="discord" type="TextureRect" parent="main"]
+anchor_left = 0.041
+anchor_top = 0.793
+anchor_right = 0.125
+anchor_bottom = 0.937
+margin_left = 0.0159988
+margin_top = 0.199982
+margin_bottom = -0.200012
+texture = ExtResource( 7 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="discord-button" type="Button" parent="main"]
+anchor_left = 0.039
+anchor_top = 0.792
+anchor_right = 0.127
+anchor_bottom = 0.941
+margin_left = -0.326
+margin_top = -0.240021
+margin_right = -0.318008
+margin_bottom = 0.10498
+flat = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="twitch" type="TextureRect" parent="main"]
+anchor_left = 0.162
+anchor_top = 0.793
+anchor_right = 0.246
+anchor_bottom = 0.937
+margin_left = 0.182007
+margin_top = 0.199982
+margin_right = 0.165985
+margin_bottom = -0.280029
+rect_pivot_offset = Vector2( -392.69, -173.035 )
+texture = ExtResource( 2 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="twitch_button" type="Button" parent="main"]
+anchor_left = 0.161
+anchor_top = 0.79
+anchor_right = 0.248
+anchor_bottom = 0.941
+margin_left = 1.52599
+margin_top = -0.0500183
+margin_right = -0.432007
+margin_bottom = 0.10498
+flat = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="game-logo" type="TextureRect" parent="main"]
+anchor_left = 0.402
+anchor_top = 0.049
+anchor_right = 0.596
+anchor_bottom = 0.296
+margin_left = -5.31726
+margin_top = -4.33055
+margin_right = 5.38525
+margin_bottom = 4.05554
+texture = ExtResource( 1 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="login-container" type="Control" parent="."]
+anchor_left = 0.351
+anchor_top = 0.292
+anchor_right = 0.658
+anchor_bottom = 0.993
+margin_left = 0.065979
+margin_top = 0.259979
+margin_right = -0.37207
+margin_bottom = 0.164978
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="container" type="TextureRect" parent="login-container"]
+anchor_left = 0.129
+anchor_top = 0.129
+anchor_right = 0.814
+anchor_bottom = 0.88
+margin_left = 0.106998
+margin_top = 0.206997
+margin_right = -0.0379944
+margin_bottom = 0.039978
+texture = ExtResource( 5 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="title-nick" type="Label" parent="login-container"]
+anchor_left = 0.196
+anchor_top = 0.234
+anchor_right = 0.196
+anchor_bottom = 0.234
+margin_left = -0.132004
+margin_top = -11.578
+margin_right = 98.868
+margin_bottom = 11.422
+custom_colors/font_color = Color( 0.631373, 0.631373, 0.631373, 1 )
+custom_fonts/font = SubResource( 1 )
+text = "Kullanıcı Adı :"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="input-nick" type="Panel" parent="login-container"]
+anchor_left = 0.18
+anchor_top = 0.376
+anchor_right = 0.77
+anchor_bottom = 0.376
+margin_left = -0.0600014
+margin_top = -1.79201
+margin_right = -0.0900116
+margin_bottom = 0.207993
+custom_styles/panel = SubResource( 2 )
+
+[node name="pass-title" type="Label" parent="login-container"]
+anchor_left = 0.202
+anchor_top = 0.471
+anchor_right = 0.202
+anchor_bottom = 0.471
+margin_left = -0.0340195
+margin_top = -11.407
+margin_right = 95.966
+margin_bottom = 11.593
+custom_colors/font_color = Color( 0.631373, 0.631373, 0.631373, 1 )
+custom_fonts/font = SubResource( 1 )
+text = "Şifre :"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="pass-input" type="Panel" parent="login-container"]
+anchor_left = 0.18
+anchor_top = 0.612
+anchor_right = 0.77
+anchor_bottom = 0.612
+margin_left = -0.0600014
+margin_top = -2.20403
+margin_right = -0.0900116
+margin_bottom = -0.204025
+custom_styles/panel = SubResource( 2 )
+
+[node name="TextureRect" type="TextureRect" parent="login-container"]
+anchor_left = 0.378
+anchor_top = 0.728
+anchor_right = 0.565
+anchor_bottom = 0.825
+margin_left = -16.826
+margin_top = -12.576
+margin_right = 13.895
+margin_bottom = 15.975
+texture = ExtResource( 4 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button" type="Button" parent="login-container"]
+anchor_left = 0.35
+anchor_top = 0.71
+anchor_right = 0.587
+anchor_bottom = 0.837
+margin_left = 0.0499954
+margin_top = -0.0700073
+margin_right = -0.07901
+margin_bottom = -0.0289917
+flat = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="inputs" type="Control" parent="login-container"]
+anchor_left = 0.174
+anchor_top = 0.273
+anchor_right = 0.59
+anchor_bottom = 0.638
+margin_left = -0.158005
+margin_top = 0.158997
+margin_right = -0.030014
+margin_bottom = -0.04599
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextEdit" type="LineEdit" parent="login-container/inputs"]
+anchor_left = 0.065
+anchor_top = 0.111
+anchor_right = 0.065
+anchor_bottom = 0.111
+margin_left = -0.960001
+margin_top = -14.985
+margin_right = 172.04
+margin_bottom = 15.015
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_fonts/font = SubResource( 5 )
+custom_styles/normal = SubResource( 4 )
+text = "emirthab"
+
+[node name="TextEdit2" type="LineEdit" parent="login-container/inputs"]
+anchor_left = 0.065
+anchor_top = 0.807
+anchor_right = 0.065
+anchor_bottom = 0.807
+margin_left = -2.96
+margin_top = -14.945
+margin_right = 170.04
+margin_bottom = 15.055
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_fonts/font = SubResource( 5 )
+custom_styles/normal = SubResource( 4 )
+text = "emirthab"
+secret = true
+
+[node name="error" type="Label" parent="login-container"]
+anchor_left = 0.475
+anchor_top = 0.066
+anchor_right = 0.475
+anchor_bottom = 0.066
+margin_left = -92.575
+margin_top = -11.522
+margin_right = 92.425
+margin_bottom = 11.478
+custom_colors/font_color = Color( 1, 0, 0, 1 )
+custom_fonts/font = SubResource( 7 )
+text = "Kullanıcı adı bulunamadı"
+
+[node name="madeby" type="Label" parent="."]
+anchor_left = 0.04
+anchor_top = 0.084
+anchor_right = 0.158
+anchor_bottom = 0.176
+margin_left = -9.96
+margin_top = 34.6
+margin_right = 4.20799
+margin_bottom = 2.39999
+rect_rotation = -26.4
+custom_colors/font_color = Color( 0.976471, 1, 0.32549, 1 )
+custom_fonts/font = SubResource( 3 )
+text = "Made by emirthab"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="info" type="Label" parent="."]
+anchor_left = 0.5
+anchor_top = 0.955
+anchor_right = 0.5
+anchor_bottom = 0.955
+margin_left = -205.0
+margin_top = -11.225
+margin_right = 225.0
+margin_bottom = 11.775
+custom_colors/font_color = Color( 0.701961, 0.929412, 0.619608, 1 )
+custom_fonts/font = SubResource( 6 )
+text = "Şifre almak için discord sunucumuza gelmeniz gerekmektedir."
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[connection signal="pressed" from="main/discord-button" to="." method="_on_discord_pressed"]
+[connection signal="pressed" from="login-container/Button" to="." method="_on_play_pressed"]
