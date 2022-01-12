@@ -21,7 +21,7 @@ func _input(event):
 		player.global_transform = $Player1Pos.global_transform
 
 	if Input.is_key_pressed(KEY_J):
-		var ip = "192.168.1.119"
+		var ip = "192.168.1.109"
 		net.create_client(ip,6969)
 		get_tree().set_network_peer(net)
 		print("Oyuna Katılıyor...")
