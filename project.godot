@@ -18,6 +18,10 @@ config/name="wipeout"
 run/main_scene="res://assets/levels/Demo.tscn"
 config/icon="res://icon.png"
 
+[global]
+
+river=false
+
 [input]
 
 move_left={
