@@ -15,8 +15,18 @@ _global_script_class_icons={
 [application]
 
 config/name="wipeout"
-run/main_scene="res://assets/levels/Demo.tscn"
+run/main_scene="res://assets/ui/login/login.tscn"
 config/icon="res://icon.png"
+
+[autoload]
+
+GlobalNet="*res://assets/script/networking/globalNet.gd"
+GlobalVariables="*res://assets/script/GlobalVariables.gd"
+
+[debug]
+
+gdscript/warnings/unused_argument=false
+gdscript/warnings/return_value_discarded=false
 
 [global]
 

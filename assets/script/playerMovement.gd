@@ -16,7 +16,6 @@ func handle_movement(delta):
 	
 	direction = Vector3()
 	if Input.is_action_pressed("move_forward"):
-		print("deneme")
 		direction -= $Pivot.transform.basis.z
 	
 	elif Input.is_action_pressed("move_backward"):
@@ -45,14 +44,11 @@ func handle_movement(delta):
 
 	if Input.is_action_just_pressed("move_jump") and jumpTimer < 0.1:
 		$Model/AnimationPlayer.play("jump")
-		rpc("setAnimation","jump")
 		y_velocity = jump_power
 	elif (velocity.x != 0 || velocity.z != 0) && y_velocity == -0.01:
 		$Model/AnimationPlayer.play("run")
-		rpc("setAnimation","run")
 	elif y_velocity == -0.01:
 		$Model/AnimationPlayer.play("idle")
-		rpc("setAnimation","idle")
 
 	velocity.y = y_velocity
 	move_and_slide(velocity,Vector3.UP)
@@ -60,8 +56,6 @@ func handle_movement(delta):
 		$Model.rotation.y = lerp_angle($Model.rotation.y, atan2(direction.x,direction.z),delta * 5)
 
 func _physics_process(delta):
-	rpc_unreliable("sendPos",global_transform)
-	rpc_unreliable("setRotation",$Model.rotation)
 	handle_movement(delta)
 
 func _input(event):

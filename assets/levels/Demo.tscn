@@ -1,7 +1,7 @@
 [gd_scene load_steps=23 format=2]
 
 [ext_resource path="res://assets/texture/grids/Dark/texture_08.png" type="Texture" id=1]
-[ext_resource path="res://assets/script/Networking.gd" type="Script" id=2]
+[ext_resource path="res://assets/sprite/player/Player.tscn" type="PackedScene" id=2]
 [ext_resource path="res://assets/texture/daytime.png" type="Texture" id=3]
 [ext_resource path="res://assets/texture/pink_mosaic.jpg" type="Texture" id=4]
 [ext_resource path="res://assets/geometry/boom_1.tscn" type="PackedScene" id=5]
@@ -79,8 +79,7 @@ uv1_scale = Vector3( 5, 5, 5 )
 [sub_resource type="SpatialMaterial" id=25]
 albedo_texture = ExtResource( 8 )
 
-[node name="DemoScene" type="Spatial"]
-script = ExtResource( 2 )
+[node name="MAP" type="Spatial"]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource( 2 )
@@ -287,7 +286,6 @@ radius = 0.584164
 height = 26.0028
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="BlockOut/zemin/CSGCylinder3"]
-root_node = NodePath("../../CSGCylinder3")
 autoplay = "dönme"
 playback_speed = 0.5
 "anims/dönme" = SubResource( 7 )
@@ -329,12 +327,6 @@ width = 0.89339
 height = 151.835
 depth = 52.0427
 
-[node name="Player1Pos" type="Position3D" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 21.8466, 171.323 )
-
-[node name="Player2Pos" type="Position3D" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -0.754182, 22.1167, 171.719 )
-
 [node name="assets" type="Spatial" parent="."]
 
 [node name="boom_1" parent="assets" instance=ExtResource( 5 )]
@@ -364,3 +356,9 @@ transform = Transform( 123.334, 0, 0, 0, 123.334, 0, 0, 0, 123.334, 13.8766, -0.
 [node name="DirectionalLight" type="DirectionalLight" parent="."]
 transform = Transform( 0.55971, -0.730914, 0.390498, -0.2938, 0.26559, 0.918229, -0.774859, -0.62867, -0.0660886, 0, 94.2533, -85.4799 )
 shadow_enabled = true
+
+[node name="otherPlayers" type="Position3D" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -7.10238, 18.7715, 163.515 )
+
+[node name="Player" parent="." instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -7.10238, 23.2761, 163.515 )

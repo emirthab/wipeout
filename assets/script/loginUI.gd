@@ -1,27 +1,23 @@
 extends Control
 
+var demoscene = preload("res://assets/levels/Demo.tscn")
 
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
-
-
-# Called when the node enters the scene tree for the first time.
 func _ready():
 	$main/twitch_button.connect("pressed",self,"_on_twitch_pressed")
-
-
 
 
 func _on_discord_pressed():
 	OS.shell_open("https://www.twitch.tv/emirthab")
 	
 
-
 func _on_play_pressed():
-	pass # Replace with function body.
+	GlobalVariables.username = $"login-container/inputs/usernameInput".text
+	GlobalNet.Connect()
+	self.hide()
+	#TODO : pass control on database
+	add_child(demoscene.instance())
+	
 
 
 func _on_twitch_pressed():
 	OS.shell_open("https://www.twitch.tv/emirthab")
-	print("deneme")
