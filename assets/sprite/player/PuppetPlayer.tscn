@@ -28,3 +28,6 @@ texture = SubResource( 2 )
 
 [node name="Networking" parent="." index="5"]
 puppet = true
+
+[node name="gui" parent="." index="6"]
+visible = false

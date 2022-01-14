@@ -2,6 +2,8 @@ extends Node
 
 export var puppet :bool
 
+var processTime = 0
+
 func _ready():
 	if !puppet:
 		setName(GlobalVariables.username)
@@ -11,7 +13,12 @@ func setName(name):
 
 func _process(delta):
 	if GlobalVariables.id and !puppet:
-		GlobalNet.sendPacket([5,GlobalVariables.id,get_parent().global_transform.origin])
+		processTime += delta
+		var playerHasMoving = get_parent().velocity.z != 0 or get_parent().velocity.x != 0 or get_parent().y_velocity != -0.01
+		if processTime > 0.025 and playerHasMoving:
+			GlobalNet.sendPacket([5,GlobalVariables.id,get_parent().global_transform.origin])
+			GlobalNet.sendPacket([10,GlobalVariables.id,get_parent().get_node("Model").rotation])
+			processTime = 0 
 
 func _on_Timer_timeout():
 	GlobalVariables.lastPingTime = OS.get_ticks_msec()

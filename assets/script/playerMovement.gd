@@ -13,7 +13,6 @@ var y_velocity : float
 var jumpTimer : float
 
 func handle_movement(delta):
-	
 	direction = Vector3()
 	if Input.is_action_pressed("move_forward"):
 		direction -= $Pivot.transform.basis.z
