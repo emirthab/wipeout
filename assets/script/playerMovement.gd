@@ -12,6 +12,9 @@ var gravity : float = 0.98
 var y_velocity : float
 var jumpTimer : float
 
+func _ready():
+	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+	
 func handle_movement(delta):
 	direction = Vector3()
 	if Input.is_action_pressed("move_forward"):
@@ -55,20 +58,15 @@ func handle_movement(delta):
 		$Model.rotation.y = lerp_angle($Model.rotation.y, atan2(direction.x,direction.z),delta * 5)
 
 func _physics_process(delta):
-	handle_movement(delta)
+	if Input.get_mouse_mode() == 2:
+		handle_movement(delta)
 
 func _input(event):
-	var just_pressed = event.is_pressed() and not event.is_echo()
 	if event is InputEventMouseMotion && Input.get_mouse_mode() != 0:
 		var resultant = sqrt((event.relative.x * event.relative.x )+ (event.relative.y * event.relative.y ))
 		var rot = Vector3(-event.relative.y,-event.relative.x,0).normalized()
 		$Pivot.rotate_object_local(rot , resultant * mouse_sensivity)
 		$Pivot.rotation.z = clamp($Pivot.rotation.z,deg2rad(-0),deg2rad(0))
 		$Pivot.rotation.x = clamp($Pivot.rotation.x,deg2rad(-30),deg2rad(30))
-	
-	if Input.is_key_pressed(KEY_ESCAPE) && just_pressed:
-		if Input.get_mouse_mode() == 0:
-			Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 
-		elif Input.get_mouse_mode() == 2:
-			Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+

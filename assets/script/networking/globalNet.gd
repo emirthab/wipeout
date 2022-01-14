@@ -45,19 +45,25 @@ func _on_data():
 			get_tree().current_scene.get_node(str("MAP/otherPlayers/", str(resp[1]) )).queue_free()
 		6:
 			var _pos = resp[2].split(",")
-			var pos = Vector3(float(_pos[0]),float(_pos[1]),float(_pos[2])) 
+			var pos = Vector3(float(_pos[0]),float(_pos[1]),float(_pos[2]))
 			var playerNodePath = str("MAP/otherPlayers/", str(resp[1]))
 			if get_tree().current_scene.has_node(playerNodePath):
 				get_tree().current_scene.get_node(playerNodePath).global_transform.origin = pos
 		9:
 			get_tree().current_scene.get_node("MAP/Player/Networking").setPing()
 		11:
-			print(resp[2])
 			var _rot = resp[2].split(",")
 			var rot = Vector3(float(_rot[0]),float(_rot[1]),float(_rot[2])) 
 			var modelNodePath = str("MAP/otherPlayers/", str(resp[1]),"/Model" )
 			if get_tree().current_scene.has_node(modelNodePath):
 				get_tree().current_scene.get_node(modelNodePath).rotation = rot
+		13:
+			print(resp)
+			var messageLine = str("[b]",resp[1]," : [/b]",str(resp[2]))
+			var chatText = get_tree().current_scene.get_node("MAP/Player/gui/chat/ChatText")
+			if chatText.bbcode_text != "":
+				messageLine = str("\n",messageLine)
+			chatText.bbcode_text += messageLine
 
 func _process(delta):
 	_client.poll()

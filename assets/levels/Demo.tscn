@@ -358,7 +358,7 @@ transform = Transform( 0.55971, -0.730914, 0.390498, -0.2938, 0.26559, 0.918229,
 shadow_enabled = true
 
 [node name="otherPlayers" type="Position3D" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -7.10238, 18.7715, 163.515 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -4.83906, 18.7715, 163.515 )
 
 [node name="Player" parent="." instance=ExtResource( 2 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -7.10238, 23.2761, 163.515 )
