@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=2]
+[gd_scene load_steps=24 format=2]
 
 [ext_resource path="res://assets/ui/login/sources/game-logo.png" type="Texture" id=1]
 [ext_resource path="res://assets/ui/login/sources/twitch.png" type="Texture" id=2]
@@ -13,6 +13,7 @@
 [ext_resource path="res://assets/ui/font/nunito/Nunito-Light.ttf" type="DynamicFontData" id=11]
 [ext_resource path="res://assets/ui/font/nunito/Nunito-ExtraBold.ttf" type="DynamicFontData" id=12]
 [ext_resource path="res://assets/script/loginUI.gd" type="Script" id=13]
+[ext_resource path="res://assets/ui/font/nunito/Nunito-ExtraLight.ttf" type="DynamicFontData" id=14]
 
 [sub_resource type="DynamicFont" id=1]
 outline_color = Color( 0.0862745, 0.0862745, 0.0862745, 1 )
@@ -37,12 +38,20 @@ bg_color = Color( 0.6, 0.6, 0.6, 0 )
 [sub_resource type="DynamicFont" id=7]
 font_data = ExtResource( 12 )
 
+[sub_resource type="DynamicFont" id=8]
+size = 15
+use_filter = true
+font_data = ExtResource( 14 )
+
 [sub_resource type="DynamicFont" id=3]
 use_filter = true
 font_data = ExtResource( 10 )
 
-[sub_resource type="DynamicFont" id=6]
-font_data = ExtResource( 11 )
+[sub_resource type="StyleBoxFlat" id=9]
+bg_color = Color( 0.0901961, 0.0901961, 0.0901961, 0.819608 )
+
+[sub_resource type="DynamicFont" id=10]
+font_data = ExtResource( 10 )
 
 [node name="login" type="Control"]
 anchor_right = 1.0
@@ -245,15 +254,15 @@ margin_right = -0.0900116
 margin_bottom = -0.204025
 custom_styles/panel = SubResource( 2 )
 
-[node name="TextureRect" type="TextureRect" parent="login-container"]
+[node name="play" type="TextureRect" parent="login-container"]
 anchor_left = 0.378
-anchor_top = 0.728
-anchor_right = 0.565
-anchor_bottom = 0.825
-margin_left = -16.826
-margin_top = -12.576
-margin_right = 13.895
-margin_bottom = 15.975
+anchor_top = 0.667
+anchor_right = 0.546
+anchor_bottom = 0.753
+margin_left = -21.826
+margin_top = -15.139
+margin_right = 14.918
+margin_bottom = 17.9991
 texture = ExtResource( 4 )
 expand = true
 __meta__ = {
@@ -261,14 +270,14 @@ __meta__ = {
 }
 
 [node name="Button" type="Button" parent="login-container"]
-anchor_left = 0.35
-anchor_top = 0.71
-anchor_right = 0.587
-anchor_bottom = 0.837
-margin_left = 0.0499954
-margin_top = -0.0700073
-margin_right = -0.07901
-margin_bottom = -0.0289917
+anchor_left = 0.334
+anchor_top = 0.643
+anchor_right = 0.571
+anchor_bottom = 0.77
+margin_left = 0.122017
+margin_top = -0.130951
+margin_right = -0.00698853
+margin_bottom = -0.0899353
 flat = true
 __meta__ = {
 "_edit_use_anchors_": false
@@ -334,6 +343,21 @@ custom_colors/font_color = Color( 1, 0, 0, 1 )
 custom_fonts/font = SubResource( 7 )
 text = "Kullanıcı adı bulunamadı"
 
+[node name="Label" type="RichTextLabel" parent="login-container"]
+anchor_left = 0.476
+anchor_top = 0.83
+anchor_right = 0.476
+anchor_bottom = 0.83
+margin_left = -87.892
+margin_top = -10.11
+margin_right = 88.108
+margin_bottom = 9.89001
+custom_fonts/normal_font = SubResource( 8 )
+bbcode_enabled = true
+bbcode_text = "Hesabın yok mu? [url=register][color=#6afbd1]kayıt ol[/color][/url]"
+text = "Hesabın yok mu? kayıt ol"
+scroll_active = false
+
 [node name="madeby" type="Label" parent="."]
 anchor_left = 0.04
 anchor_top = 0.084
@@ -351,21 +375,258 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="info" type="Label" parent="."]
-anchor_left = 0.5
-anchor_top = 0.955
-anchor_right = 0.5
-anchor_bottom = 0.955
-margin_left = -205.0
-margin_top = -11.225
-margin_right = 225.0
-margin_bottom = 11.775
-custom_colors/font_color = Color( 0.701961, 0.929412, 0.619608, 1 )
-custom_fonts/font = SubResource( 6 )
-text = "Şifre almak için discord sunucumuza gelmeniz gerekmektedir."
+[node name="register-container" type="Control" parent="."]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = 0.0839844
+margin_bottom = 0.224976
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="Panel" type="Panel" parent="register-container"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_styles/panel = SubResource( 9 )
+
+[node name="container" type="Control" parent="register-container"]
+anchor_left = 0.494
+anchor_top = 0.554
+anchor_right = 0.494
+anchor_bottom = 0.554
+margin_left = -143.837
+margin_top = -192.755
+margin_right = 133.163
+margin_bottom = 192.245
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel" type="Panel" parent="register-container/container"]
+anchor_left = 0.489
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -172.453
+margin_top = -225.5
+margin_right = 169.5
+margin_bottom = 212.5
+
+[node name="login-container" type="Control" parent="register-container/container"]
+anchor_left = 0.513
+anchor_top = 0.5
+anchor_right = 0.513
+anchor_bottom = 0.5
+margin_left = -157.101
+margin_top = -244.5
+margin_right = 156.899
+margin_bottom = 172.5
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="title-nick" type="Label" parent="register-container/container/login-container"]
+anchor_left = 0.196
+anchor_top = 0.243
+anchor_right = 0.196
+anchor_bottom = 0.243
+margin_left = -0.132004
+margin_top = -11.331
+margin_right = 98.868
+margin_bottom = 11.669
+custom_colors/font_color = Color( 0.631373, 0.631373, 0.631373, 1 )
+custom_fonts/font = SubResource( 1 )
+text = "Kullanıcı Adı :"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="input-nick" type="Panel" parent="register-container/container/login-container"]
+anchor_left = 0.18
+anchor_top = 0.376
+anchor_right = 0.77
+anchor_bottom = 0.376
+margin_left = -0.0600014
+margin_top = -1.79201
+margin_right = -0.0900116
+margin_bottom = 0.207993
+custom_styles/panel = SubResource( 2 )
+
+[node name="pass-title" type="Label" parent="register-container/container/login-container"]
+anchor_left = 0.202
+anchor_top = 0.471
+anchor_right = 0.202
+anchor_bottom = 0.471
+margin_left = -0.0340195
+margin_top = -11.407
+margin_right = 95.966
+margin_bottom = 11.593
+custom_colors/font_color = Color( 0.631373, 0.631373, 0.631373, 1 )
+custom_fonts/font = SubResource( 1 )
+text = "Şifre :"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="pass-title2" type="Label" parent="register-container/container/login-container"]
+anchor_left = 0.202
+anchor_top = 0.687
+anchor_right = 0.202
+anchor_bottom = 0.687
+margin_left = -0.0340195
+margin_top = -11.5131
+margin_right = 95.966
+margin_bottom = 11.4869
+custom_colors/font_color = Color( 0.631373, 0.631373, 0.631373, 1 )
+custom_fonts/font = SubResource( 1 )
+text = "Şifre Tekrar :"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="pass-input" type="Panel" parent="register-container/container/login-container"]
+anchor_left = 0.18
+anchor_top = 0.612
+anchor_right = 0.77
+anchor_bottom = 0.612
+margin_left = -0.0600014
+margin_top = -2.20403
+margin_right = -0.0900116
+margin_bottom = -0.204025
+custom_styles/panel = SubResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="pass-input2" type="Panel" parent="register-container/container/login-container"]
+anchor_left = 0.18
+anchor_top = 0.612
+anchor_right = 0.77
+anchor_bottom = 0.612
+margin_left = -0.0600052
+margin_top = 88.796
+margin_right = -0.0900116
+margin_bottom = 90.796
+custom_styles/panel = SubResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="inputs" type="Control" parent="register-container/container/login-container"]
+anchor_left = 0.174
+anchor_top = 0.273
+anchor_right = 0.59
+anchor_bottom = 0.638
+margin_left = -0.158005
+margin_top = 0.158997
+margin_right = -0.030014
+margin_bottom = -0.04599
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="usernameInput" type="LineEdit" parent="register-container/container/login-container/inputs"]
+anchor_left = 0.065
+anchor_top = 0.111
+anchor_right = 0.065
+anchor_bottom = 0.111
+margin_left = -0.960001
+margin_top = -14.985
+margin_right = 172.04
+margin_bottom = 15.015
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_fonts/font = SubResource( 5 )
+custom_styles/normal = SubResource( 4 )
+text = "emir"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="passwordInput" type="LineEdit" parent="register-container/container/login-container/inputs"]
+anchor_left = 0.065
+anchor_top = 0.807
+anchor_right = 0.065
+anchor_bottom = 0.807
+margin_left = -2.96
+margin_top = -14.945
+margin_right = 170.04
+margin_bottom = 15.055
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_fonts/font = SubResource( 5 )
+custom_styles/normal = SubResource( 4 )
+secret = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="passwordInput2" type="LineEdit" parent="register-container/container/login-container/inputs"]
+anchor_left = 0.065
+anchor_top = 1.395
+anchor_right = 0.065
+anchor_bottom = 1.395
+margin_left = -2.0
+margin_top = -15.04
+margin_right = 170.0
+margin_bottom = 14.96
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_fonts/font = SubResource( 5 )
+custom_styles/normal = SubResource( 4 )
+secret = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button" type="Button" parent="register-container/container/login-container"]
+anchor_left = 0.295
+anchor_top = 0.962
+anchor_right = 0.295
+anchor_bottom = 0.962
+margin_left = -48.6305
+margin_top = -20.1536
+margin_right = 48.3695
+margin_bottom = 18.8464
+custom_fonts/font = SubResource( 10 )
+text = "Kayıt Ol"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button2" type="Button" parent="register-container/container/login-container"]
+anchor_left = 0.664
+anchor_top = 0.962
+anchor_right = 0.664
+anchor_bottom = 0.963
+margin_left = -48.4965
+margin_top = -19.1536
+margin_right = 48.5035
+margin_bottom = 19.4294
+custom_fonts/font = SubResource( 10 )
+text = "İptal"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="error" type="Label" parent="register-container/container/login-container"]
+anchor_left = 0.5
+anchor_top = 0.109
+anchor_right = 0.5
+anchor_bottom = 0.109
+margin_left = -242.0
+margin_top = -11.4526
+margin_right = 239.0
+margin_bottom = 11.5474
+custom_colors/font_color = Color( 1, 0, 0, 1 )
+custom_fonts/font = SubResource( 7 )
+text = "Şifre adı en az 8 karakterden oluşmalı."
+align = 1
+valign = 1
+clip_text = true
+
+[node name="HTTPRequest" type="HTTPRequest" parent="."]
+
 [connection signal="pressed" from="main/discord-button" to="." method="_on_discord_pressed"]
 [connection signal="pressed" from="login-container/Button" to="." method="_on_play_pressed"]
+[connection signal="meta_clicked" from="login-container/Label" to="." method="_on_Label_meta_clicked"]
+[connection signal="pressed" from="register-container/container/login-container/Button" to="." method="_on_Register_pressed"]
+[connection signal="pressed" from="register-container/container/login-container/Button2" to="." method="_on_cancel_pressed"]

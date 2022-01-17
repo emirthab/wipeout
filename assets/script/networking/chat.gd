@@ -8,12 +8,12 @@ var textt = """[b][color=#afa]emirthab : [/color][/b] merhaba deneme deneme lore
 [b][color=#afa]asetilen : [/color][/b] merhaba deneme deneme lorem  """
 
 func _ready():
+	GlobalNet.connect("chat",self,"_on_data")
 	for child in chatInput.get_children():
 		if child is VScrollBar:
 			remove_child(child)
 		elif child is HScrollBar:
 			remove_child(child)
-
 
 func _on_ChatInput_focus_entered():
 	pass
@@ -30,5 +30,9 @@ func _input(event):
 		else:
 			chatInput.grab_focus()
 			Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
-			
-			
+						
+func _on_data(resp):
+	if resp[0]==13:
+		var messageLine = str("[b]",resp[1]," : [/b]",str(resp[2]))
+		if $ChatText.bbcode_text != "": messageLine = str("\n",messageLine)
+		$ChatText.bbcode_text += messageLine
