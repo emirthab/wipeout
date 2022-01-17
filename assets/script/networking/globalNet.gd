@@ -28,6 +28,7 @@ func _on_data():
 	var response = _client.get_peer(1).get_packet().get_string_from_utf8()
 	response = response.replace("'",'"')
 	var resp := str2var(response) as Array
+	print(resp)
 	match resp[0]:
 		9 , 6 , 11: emit_signal("playerNetworking",resp)
 		13 : emit_signal("chat",resp)

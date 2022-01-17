@@ -14,7 +14,9 @@ func _process(delta):
 	if GlobalVariables.id and !puppet:
 		processTime += delta
 		var playerHasMoving = get_parent().velocity.z != 0 or get_parent().velocity.x != 0 or get_parent().y_velocity != -0.01
-		if processTime > updateProcess and playerHasMoving : sendPos() ; sendRot() ; processTime = 0 
+		if processTime > updateProcess and playerHasMoving : 
+			sendPos() ; sendRot() ; 
+			processTime = 0 
 
 func _on_data(resp):
 	match resp[0]:
