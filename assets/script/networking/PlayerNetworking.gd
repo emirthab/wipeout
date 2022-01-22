@@ -23,10 +23,14 @@ func _on_data(resp):
 		9:  setPing()
 		6:  syncPos(resp)
 		11: syncRot(resp)
+		15: syncAnim(resp)
 
 func _on_Timer_timeout():
 	GlobalVariables.lastPingTime = OS.get_ticks_msec()
 	GlobalNet.sendPacket([8])
+
+func sendAnim(anim):
+	GlobalNet.sendPacket([14,GlobalVariables.id,str("'" + anim + "'")])
 
 func sendPos():
 	GlobalNet.sendPacket([5,GlobalVariables.id,get_parent().global_transform.origin])
@@ -55,6 +59,12 @@ func syncRot(resp):
 		var _rot = resp[2].split(",") 
 		var rot = Vector3(float(_rot[0]),float(_rot[1]),float(_rot[2])) 
 		model.rotation = rot
+
+func syncAnim(resp):
+	var player = getPlayerById(resp[1])
+	if player and player.has_node("Model/AnimationPlayer"):
+		var animPlayer = player.get_node("Model/AnimationPlayer")
+		animPlayer.play(resp[2])
 
 func getPlayerById(id):
 	var playerNodePath = str("MAP/otherPlayers/", str(id))

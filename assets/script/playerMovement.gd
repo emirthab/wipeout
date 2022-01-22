@@ -45,12 +45,12 @@ func handle_movement(delta):
 		jumpTimer = 0
 
 	if Input.is_action_just_pressed("move_jump") and jumpTimer < 0.1:
-		$Model/AnimationPlayer.play("jump")
+		$Model/AnimationPlayer.play("jump") ; $Networking.sendAnim("jump")
 		y_velocity = jump_power
 	elif (velocity.x != 0 || velocity.z != 0) && y_velocity == -0.01:
-		$Model/AnimationPlayer.play("run")
+		$Model/AnimationPlayer.play("run") ; $Networking.sendAnim("run")
 	elif y_velocity == -0.01:
-		$Model/AnimationPlayer.play("idle")
+		$Model/AnimationPlayer.play("idle") ; $Networking.sendAnim("idle")
 
 	velocity.y = y_velocity
 	move_and_slide(velocity,Vector3.UP)

@@ -15,22 +15,21 @@ func Connect():
 	if err != OK:
 		print("Unable to connect")
 		set_process(false)
+	return(true)
 
 func _closed(was_clean = false):
-	set_process(false)
 	GlobalVariables.id = ""
 
 func _connected(proto = ""):
 	print("Connected with protocol: ", proto)
-	sendPacket([1,str('"' + GlobalVariables.username+'"')])
+	sendPacket([1,str('"' + GlobalVariables.username +'"'),str('"' + GlobalVariables.websocketToken +'"')])
 
 func _on_data():
 	var response = _client.get_peer(1).get_packet().get_string_from_utf8()
 	response = response.replace("'",'"')
 	var resp := str2var(response) as Array
-	print(resp)
 	match resp[0]:
-		9 , 6 , 11: emit_signal("playerNetworking",resp)
+		9 , 6 , 11, 15: emit_signal("playerNetworking",resp)
 		13 : emit_signal("chat",resp)
 		2  : GlobalVariables.id = resp[1]
 		3  : 
@@ -40,7 +39,10 @@ func _on_data():
 			
 		4  : for player in resp[1]: addPlayerInGame(player["id"],player["name"])
 		7  : removePlayerInGame(resp[1])
-
+		16 : 
+			print("disconnected")
+			get_tree().reload_current_scene()
+			_client.disconnect_from_host()
 
 func _process(delta):
 	_client.poll()

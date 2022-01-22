@@ -15,8 +15,7 @@ panorama = ExtResource( 3 )
 [sub_resource type="Environment" id=2]
 background_mode = 2
 background_sky = SubResource( 1 )
-background_color = Color( 1, 1, 1, 1 )
-background_energy = 1.68
+background_color = Color( 0.662745, 0.596078, 0.321569, 0.0901961 )
 
 [sub_resource type="SpatialMaterial" id=3]
 albedo_texture = ExtResource( 1 )
@@ -391,7 +390,7 @@ transform = Transform( 123.334, 0, 0, 0, 123.334, 0, 0, 0, 123.334, 18.7943, -0.
 transform = Transform( 123.334, 0, 0, 0, 123.334, 0, 0, 0, 123.334, 13.8766, -0.0164576, 19.9585 )
 
 [node name="DirectionalLight" type="DirectionalLight" parent="."]
-transform = Transform( 0.55971, -0.730914, 0.390498, -0.2938, 0.26559, 0.918229, -0.774859, -0.62867, -0.0660886, 0, 94.2533, -85.4799 )
+transform = Transform( 0.55971, -0.730914, 0.390498, -0.2938, 0.26559, 0.918228, -0.774859, -0.62867, -0.0660892, 0, 94.2533, -85.4799 )
 shadow_enabled = true
 
 [node name="otherPlayers" type="Position3D" parent="."]
