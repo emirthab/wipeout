@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=2]
+[gd_scene load_steps=28 format=2]
 
 [ext_resource path="res://assets/ui/login/sources/game-logo.png" type="Texture" id=1]
 [ext_resource path="res://assets/ui/login/sources/twitch.png" type="Texture" id=2]
@@ -14,6 +14,7 @@
 [ext_resource path="res://assets/ui/font/nunito/Nunito-ExtraBold.ttf" type="DynamicFontData" id=12]
 [ext_resource path="res://assets/script/loginUI.gd" type="Script" id=13]
 [ext_resource path="res://assets/ui/font/nunito/Nunito-ExtraLight.ttf" type="DynamicFontData" id=14]
+[ext_resource path="res://assets/ui/font/nunito/Nunito-Black.ttf" type="DynamicFontData" id=15]
 
 [sub_resource type="DynamicFont" id=1]
 outline_color = Color( 0.0862745, 0.0862745, 0.0862745, 1 )
@@ -52,6 +53,19 @@ bg_color = Color( 0.0901961, 0.0901961, 0.0901961, 0.819608 )
 
 [sub_resource type="DynamicFont" id=10]
 font_data = ExtResource( 10 )
+
+[sub_resource type="DynamicFontData" id=11]
+font_path = "res://assets/ui/font/nunito/Nunito-Bold.ttf"
+
+[sub_resource type="DynamicFont" id=12]
+use_filter = true
+font_data = SubResource( 11 )
+
+[sub_resource type="DynamicFont" id=13]
+size = 31
+use_filter = true
+extra_spacing_char = 7
+font_data = ExtResource( 15 )
 
 [node name="login" type="Control"]
 anchor_right = 1.0
@@ -325,6 +339,7 @@ margin_bottom = 15.055
 custom_colors/font_color = Color( 1, 1, 1, 1 )
 custom_fonts/font = SubResource( 5 )
 custom_styles/normal = SubResource( 4 )
+text = "e7f75502"
 secret = true
 __meta__ = {
 "_edit_use_anchors_": false
@@ -628,6 +643,113 @@ text = "Şifre adı en az 8 karakterden oluşmalı."
 align = 1
 valign = 1
 clip_text = true
+
+[node name="discord-container" type="Control" parent="."]
+visible = false
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = 0.0839844
+margin_bottom = 0.224976
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel" type="Panel" parent="discord-container"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_styles/panel = SubResource( 9 )
+
+[node name="container" type="Control" parent="discord-container"]
+anchor_left = 0.494
+anchor_top = 0.554
+anchor_right = 0.494
+anchor_bottom = 0.554
+margin_left = -143.837
+margin_top = -192.755
+margin_right = 133.163
+margin_bottom = 192.245
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Panel" type="Panel" parent="discord-container/container"]
+anchor_left = 0.489
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -172.453
+margin_top = -225.5
+margin_right = 169.5
+margin_bottom = 212.5
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="container" type="Control" parent="discord-container/container"]
+anchor_left = 0.489
+anchor_top = 0.464
+anchor_right = 0.489
+anchor_bottom = 0.464
+margin_left = -135.453
+margin_top = -178.64
+margin_right = 135.547
+margin_bottom = 178.36
+rect_pivot_offset = Vector2( -484, 43.0004 )
+
+[node name="Button" type="Button" parent="discord-container/container/container"]
+anchor_left = 0.496
+anchor_top = 1.0
+anchor_right = 0.496
+anchor_bottom = 1.0
+margin_left = -75.4165
+margin_top = -25.9996
+margin_right = 75.5835
+margin_bottom = 26.0004
+text = "TAMAM"
+
+[node name="Label" type="Label" parent="discord-container/container/container"]
+anchor_left = 0.487
+anchor_top = 0.141
+anchor_right = 0.487
+anchor_bottom = 0.141
+margin_left = -131.977
+margin_top = -50.337
+margin_right = 136.023
+margin_bottom = 50.663
+custom_fonts/font = SubResource( 12 )
+text = "Aşağıdaki kodu discord sunucumuzdaki kod odasına yazman gerek."
+align = 1
+autowrap = true
+
+[node name="discord2" type="TextureRect" parent="discord-container/container/container"]
+anchor_left = 0.494
+anchor_top = 0.648
+anchor_right = 0.494
+anchor_bottom = 0.648
+margin_left = -53.8745
+margin_top = -51.3356
+margin_right = 54.1255
+margin_bottom = 51.6644
+texture = ExtResource( 7 )
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="discord_code" type="Label" parent="discord-container/container/container"]
+anchor_left = 0.487
+anchor_top = 0.318
+anchor_right = 0.491
+anchor_bottom = 0.318
+margin_left = -132.977
+margin_top = -21.526
+margin_right = 133.939
+margin_bottom = 21.474
+custom_colors/font_color = Color( 1, 0.278431, 0.278431, 1 )
+custom_fonts/font = SubResource( 13 )
+text = "189834"
+align = 1
+autowrap = true
 
 [node name="HTTPRequestRegister" type="HTTPRequest" parent="."]
 

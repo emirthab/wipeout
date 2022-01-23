@@ -10,6 +10,7 @@ func _ready():
 	$HTTPRequestRegister.connect("request_completed",self,"_on_HTTPRequestRegister_request_completed")
 	$HTTPRequestLogin.connect("request_completed",self,"_on_HTTPRequestLogin_request_completed")
 	$main/twitch_button.connect("pressed",self,"_on_twitch_pressed")
+	$"discord-container/container/container/Button".connect("pressed",self,"on_dc_code_ok_pressed")
 
 func _on_discord_pressed():
 	OS.shell_open("https://www.twitch.tv/emirthab")
@@ -53,7 +54,9 @@ func _on_HTTPRequestLogin_request_completed(result:int, response_code:int, heade
 func _on_HTTPRequestRegister_request_completed(result:int, response_code:int, headers:PoolStringArray, body:PoolByteArray):
 	var resp = JSON.parse(body.get_string_from_utf8()).result
 	if resp["response"] == "OK":
-		print(resp["dc_code"])
+		$"discord-container".show()
+		$"discord-container/container/container/discord_code".text = str(resp["dc_code"])
+		
 	else:
 		print(resp["response"])
 		errorLabelReg.show()
@@ -74,3 +77,5 @@ func _on_Register_pressed():
 		errorLabelReg.show()
 		errorLabelReg.text = "İki şifre aynı olmalı."
 
+func on_dc_code_ok_pressed():
+	$"discord-container".hide()
